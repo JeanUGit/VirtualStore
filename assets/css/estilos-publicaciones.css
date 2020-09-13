@@ -1,0 +1,18 @@
+.contenedor-publicaciones{
+    margin: 0 auto;
+    /* width: 100px; */
+    height: 100%;
+    background:linear-gradient(to left, #7F00FF, #E100FF);
+    display:flex;
+    flex-direction: column;
+}
+
+.notificacion{
+    /* width:500px; */
+    margin: 10px auto;
+    height:500px;
+    border: 1px solid white;
+    color:white;
+    /* background-color:white; */
+
+}
