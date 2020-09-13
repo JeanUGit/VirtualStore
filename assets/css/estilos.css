@@ -1,0 +1,88 @@
+.BRAND-LOGO h1{
+    color:transparent;
+    background:linear-gradient(#7F00FF, #E100FF);
+    Font-weight:600;
+    -webkit-background-clip: text;
+    
+  }
+  
+.GradientFather h5{
+  color:transparent;
+  background:linear-gradient(#7F00FF, #E100FF);
+  Font-weight:600;
+  -webkit-background-clip: text;
+}
+
+#proBanner > #ultimosMensajes{
+  /* background: linear-gradient(to right,#7F00FF, #E100FF); */
+  margin-bottom:40px;
+  display:flex;
+  width:200px;
+  align-items: center;
+  justify-content:center;
+  border: 1px solid rgba(189, 189, 189);
+  border-radius:20px;
+  padding: 10px;
+  box-shadow: 5px 8px #888888;
+}
+
+#proBanner > #ultimosMensajes > #bannerClose{
+  top:-100px;
+  right:0;
+}
+
+#proBanner > #ultimosMensajes > .Imagen{
+  width: 50px;
+  height: 50px;
+}
+
+#proBanner > #ultimosMensajes > .Imagen > img{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  position: relative;
+}
+
+#proBanner > #ultimosMensajes > .Cuerpo-Mensaje
+{
+  margin: 0 20px;
+  height :100%;
+  display:flex;
+  align-items: center;
+  align-content: center;
+  justify-content:center;
+  position: relative;
+}
+
+#proBanner > #ultimosMensajes > .Cuerpo-Mensaje .Cuerpo-Mensaje-texto{
+  color: rgba(161, 161, 161);
+  margin: 0 5px;
+  height:100%;
+  width:70%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  /* background: linear-gradient(to right,#7F00FF, #E100FF); */
+  position: relative;
+}
+
+
+#proBanner > #ultimosMensajes > .Cuerpo-Mensaje .Cuerpo-Mensaje-btn{
+  color:white;
+  font-size:17px;
+  font-weight: 600;
+  padding: 10px;
+  height:50%;
+  width:30%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius: 25px;
+  background: linear-gradient(#7F00FF, #E100FF); 
+  position: relative;
+}
+
+#proBanner > #ultimosMensajes > .Cuerpo-Mensaje .Cuerpo-Mensaje-btn > a{
+  text-decoration:none;
+}
+
