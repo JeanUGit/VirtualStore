@@ -44,7 +44,7 @@
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
-                      <a href="Recover_Password.php" class="auth-link text-black">¿Olvidaste Tu contraseña (⊙_⊙;)?</a>
+                      <a href="./assets/FuncionalidadesPHP/operaciones.RP.php" class="auth-link text-black">¿Olvidaste Tu contraseña (⊙_⊙;)?</a>
                     </div>
                   </div>
                   <div class="mb-2">
