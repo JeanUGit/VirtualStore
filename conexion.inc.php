@@ -1,22 +1,17 @@
 <?php
-
+ use PHPMailer\PHPMailer\PHPMailer;
+ use PHPMailer\PHPMailer\Exception;
  
-require_once "../../vendor/autoload.php";
-require 'dependencias/Exception.php';
-require 'dependencias/PHPMailer.php';
-require 'dependencias/SMTP.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-$ip = '160.153.129.238';
+ require_once "../../vendor/autoload.php";
+//  require_once "constants.php";
+//  require 'dependencias/Exception.php';
+//  require 'dependencias/PHPMailer.php';
+//  require 'dependencias/SMTP.php';
 
 function ConnectDB(){
-    $bd_dns = 'mysql:host=localhost; dbname=storevirtual;';
-    // $bd_user = 'storevirtual';
-    // $bd_password = '3203825242vale';
-    $bd_user = 'root';
-    $bd_password = '';
+    $bd_dns = 'mysql:host=localhost; dbname=storevirtual; charset=utf8';
+    $bd_user = 'storevirtual';
+    $bd_password = '3203825242vale';
     $bd_options = array(PDO::ATTR_PERSISTENT => true);
     try{
         $bds = new PDO($bd_dns, $bd_user, $bd_password, $bd_options);
@@ -41,14 +36,13 @@ function Get_Datos(){
         else{
             $correo = $_POST['TxtCorreo'];
             $bds = ConnectDB();
-            var_dump($bds);
             $strSQL = "SELECT Correo,Nombre FROM TblPersonas WHERE Correo ='$correo' ;";
             $persona = $bds->query($strSQL)->fetchAll(PDO::FETCH_NUM);
             if($persona)
             {
                 $person = array_shift($persona);
                 $alertColor = "alert alert-success";
-                $codeEncrypt = uniqid("TeAmoMiAmor");
+                $codeEncrypt = uniqid("MYWendY");
                 $msj = Send_Email($person[0],$person[1],$codeEncrypt);   
             }
             else{

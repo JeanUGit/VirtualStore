@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Restablecer la contraseña para Variedades y Comunicaciones</title>
+    <title>Restablecer la contraseña para Virtual Store</title>
     
     
   </head>
@@ -32,9 +32,9 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
           <table class="email-content" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0; padding: 0; width: 100%;">
             <tr>
               <td class="email-masthead" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; padding: 25px 0; word-break: break-word;" align="center">
-                <a href="<?php echo URL; ?>" class="email-masthead_name" style="box-sizing: border-box; color: #bbbfc3; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; font-weight: bold; text-decoration: none; text-shadow: 0 1px 0 white;">
-        Variedades Virtual Store
-      </a>
+                <a href="<?php echo 'hola' ?>" class="email-masthead_name" style="box-sizing: border-box; color: #bbbfc3; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; font-weight: bold; text-decoration: none; text-shadow: 0 1px 0 white;" >
+                Virtual Store
+                 </a>
               </td>
             </tr>
             
@@ -69,7 +69,7 @@ width: 100% !important; height: 100%; margin: 0; line-height: 1.4; background-co
                       </table>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left"> Por razones de seguridad, Si no solicitó restablecer la contraseña, ignore este correo electrónico o póngase en contacto con el servicio de asistencia si tiene alguna pregunta. </p>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left">Gracias,
-                        <br />Equipo de Variedades y Comunicaciones</p>
+                        <br />Equipo Tecnico Virtual Store</p>
                       
                       <table class="body-sub" style="border-top-color: #EDEFF2; border-top-style: solid; border-top-width: 1px; box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin-top: 25px; padding-top: 25px;">
                         <tr>
