@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +16,7 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/estilos.css">
+    <link rel="stylesheet" href="../../assets/css/estilosRecover.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
   </head>
@@ -30,26 +31,26 @@
                   <h1>¡Recuperame!</h1>
                 </div>
                 <h4>¡Sigue estos pasos!</h4>
-                <form class="pt-3" method="POST" action="operaciones.RP.php">
-                  <div class=" <?php echo $alert ?>" role="alert">
-                    <p> <?php echo $msj ?> </p>
-                  </div>
-                  <div class="form-group">
-                    <input type="email" id="TxtCorreo" name="TxtCorreo" value="" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Correo de Usuario">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="newPassword" placeholder="Nueva Contraseña" value=""  disabled >
-                  </div>
-                  <div class="form-group">
-                    <input type="text"  class="form-control form-control-lg" id="newPassword" placeholder="Nueva Contraseña" value=""  disabled display=null >
-                  </div>
-                  
-                  <div class="mt-3">
-                    <button type=submit value="validar" name="btnOperacion" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="validar"  onclick="validarCodigo()" >Validar</button>
-                  </div>
-                  <div class="text-center mt-4 font-weight-light"> ¿Recordaste Tu Cuenta? <a href="../../login.php" class="text-primary">IniciarSesión</a>
-                  </div>
-                </form>
+                <div class="buscarCorreo" id="buscarCorreo">
+                  <form class="pt-3" method="POST" action="operaciones.RP.php"  autocomplete="off" >
+                    <div class="<?php echo $alert ?>" role="alert">
+                       <p><?php echo $msj ?></p> 
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      </button>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" id="TxtCorreo" name="TxtCorreo" value="" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="<?php echo  $placeHolderTxt; ?>">
+                    </div>
+  
+                    <div class="mt-3">
+                      <button type=submit value="validar" name="btnOperacion" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Buscar"> <?php echo $buttonValue; ?>  </button>
+                    </div>
+                    <div class="text-center mt-4 font-weight-light"> ¿Recordaste Tu Cuenta? <a href="../../login.php" class="text-primary">IniciarSesión</a>
+                    </div>
+                  </form>
+                </div>
+
+
               </div>
             </div>
           </div>

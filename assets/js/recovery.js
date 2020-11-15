@@ -1,7 +1,11 @@
-function validarCodigo() {
-    setTimeout(() => {
-        code = prompt('Ingrese el código de Validación');
-      }, 3000);
+
+const formValidarCodigo = document.getElementById('#ValidarCodigo');
+const formBuscarCodigo = document.getElementById('#buscarCorreo');
+const formNewPassword= document.getElementById('#newPassword');
+
+function toggleMenu() {
+ console.log(formValidarCodigo);
+ console.log(formBuscarCodigo);
+ console.log(formNewPassword);
     
-    
-}
+} 

@@ -318,3 +318,15 @@ input[type="text"]{
   color:white;
   font-size:12px;
 }
+
+.ValidarCodigo{
+  /* display: none; */
+}
+
+.buscarCorreo{
+  /* display: none; */
+}
+
+.newPassword{
+  /* display: none; */
+}

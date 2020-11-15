@@ -1,10 +1,27 @@
+<?php
+  session_start();
+  $name = '';
+  if( $_SESSION['login_id'] == null || $_SESSION['login_id'] == ""){
+    echo '¡Sin Autorización!';
+    die();
+  }
+  else{  
+    if(isset($_POST['close'])){
+      session_destroy();
+      header('location:../../login.php');
+    }else{
+      $name =  $_SESSION['usuario_name'];
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Resumen</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -32,25 +49,12 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <div class="row" id="proBanner">
-              <div id="ultimosMensajes">
-                  <div class="Imagen">
-                    <img class="" src="../../assets/images/faces/face3.jpg" alt="image">
-                  </div>
-                  <div class="Cuerpo-Mensaje">
-                    <div class="Cuerpo-Mensaje-texto">
-                        <p>Hola Me interesa tu Publicación!</p>
-                    </div>
-                      <div class="Cuerpo-Mensaje-btn">
-                      <a href="#" title="Revisar Msj" target="_blank" class="Cuerpo-Mensaje-btn">Revisar</a>
-                    </div>
-                  </div>
-                  <i title="Cerrar Ventana" class="mdi mdi-close" id="bannerClose"></i>
-              </div>
-            </div>
+           
             <div id="MainContainer" class="col-12">
               <div class="contenedor-publicaciones col-8">
+                <?php for ($i=0; $i < 5 ; $i++): ?>
                   <div class="notificacion col-8">
+                      <img src="" alt="" srcset="">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
@@ -59,237 +63,9 @@
                         Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
                         suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
                       </p>
+                      <button>Comprar</button>
                   </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
-                  <div class="notificacion col-8">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Officia atque sequi optio, labore tempore iusto, provident esse veniam possimus odio numquam,
-                        suscipit iure? Laboriosam cum placeat quidem, nam doloribus praesentium?
-                      </p>
-                  </div>
+                <?php endfor; ?>
                   
               </div>
             </div>

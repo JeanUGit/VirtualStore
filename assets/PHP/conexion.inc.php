@@ -1,24 +1,31 @@
 <?php
- use PHPMailer\PHPMailer\PHPMailer;
- use PHPMailer\PHPMailer\Exception;
+
  
- require_once "../../vendor/autoload.php";
-//  require_once "constants.php";
-//  require 'dependencias/Exception.php';
-//  require 'dependencias/PHPMailer.php';
-//  require 'dependencias/SMTP.php';
+// require_once "../../vendor/autoload.php";
+require 'dependencias/Exception.php';
+require 'dependencias/PHPMailer.php';
+require 'dependencias/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// $ip = '160.153.129.238';
 
 function ConnectDB(){
-    $bd_dns = 'mysql:host=localhost; dbname=storevirtual; charset=utf8';
-    $bd_user = 'storevirtual';
-    $bd_password = '3203825242vale';
+    $bd_dns = 'mysql:host=localhost; dbname=database_storevirtual; charset=utf8';
+    // $bd_user = 'storevirtual';
+    // $bd_password = '3203825242vale';
+    $bd_user = 'root';
+    $bd_password = '';
     $bd_options = array(PDO::ATTR_PERSISTENT => true);
     try{
         $bds = new PDO($bd_dns, $bd_user, $bd_password, $bd_options);
         return $bds;
+        
     }catch(PDOException $error){
         return $error->getmessage();
     }
+
 }
 
 function Get_Datos(){
@@ -28,10 +35,12 @@ function Get_Datos(){
         $alertColor = "";
         $msj= "";
         $codeEncrypt = 0;
+        $error = false;
         if($_POST['TxtCorreo']=="")
         {
-            $alertColor = "alert alert-warning"; 
+            $alertColor = "alert alert-warning alert-dismissible fade show"; 
             $msj = "Debe deligenciar un Correo!";
+            $error = true;
         }
         else{
             $correo = $_POST['TxtCorreo'];
@@ -41,17 +50,19 @@ function Get_Datos(){
             if($persona)
             {
                 $person = array_shift($persona);
-                $alertColor = "alert alert-success";
-                $codeEncrypt = uniqid("MYWendY");
-                $msj = Send_Email($person[0],$person[1],$codeEncrypt);   
+                $alertColor = "alert alert-success alert-dismissible fade show";
+                $codeEncrypt = uniqid("vrtualStore");
+                $msj = Send_Email($person[0],$person[1],$codeEncrypt); 
+                $error = false;  
             }
             else{
-                $alertColor = "alert alert-danger";
-                $msj= "¡consulté con el Administrador!";   
+                $alertColor = "alert alert-danger alert-dismissible fade show";
+                $msj= "¡consulté con el Administrador!";
+                $error = true;   
             }
                 
         }
-        return array($msj,$alertColor,$codeEncrypt);
+        return array($msj,$alertColor,$codeEncrypt,$error);
     }
     
 }
@@ -90,5 +101,8 @@ function Send_Email($correo,$name,$codeEncrypt){
         return $e;
     }     
 }
+
+
+
 
 ?>

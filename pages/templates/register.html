@@ -16,6 +16,8 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/estilos.css">
+    <link rel="stylesheet" href="../../assets/css/estilosRegistro.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
   </head>
@@ -33,23 +35,33 @@
                 <h6 class="font-weight-light">Sólo sigue los siguientes pasos.</h6>
                 <form class="pt-3">
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Nombre">
+                    <label id="lblFoto" for="foto">    
+                      <i for="foto" class="material-icons">
+                        add_photo_alternate
+                      </i>
+                      Foto De Perfil
+                    </label>
+                    <input type="file" class="form-control form-control-lg" id="foto" onchange="filePreview(this);" />
+          
+                  </div>
+                  <div class="form-group" id="imagePreview">
+                   
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" id="nombre" placeholder="Nombre">
                   </div>
                   <div class="form-group">
                     <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Apellido">
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Correo">
+                    <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Correo">
                   </div>
                   <div class="form-group">
-                    <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                      <option>País</option>
-                      <option>Colombia</option>
-                      <option>Estados Unidos</option>
-                      <option>India</option>
-                      <option>Alemania</option>
-                      <option>Argentina</option>
-                    </select>
+                    <input type="text" class="form-control form-control-lg" id="exampleInputDireccion" placeholder="Dirección" >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" id="exampleInputUser" placeholder="Usuario">
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Contraseña">
@@ -81,8 +93,10 @@
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/6.2.0/d3.min.js"></script>
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/registro.js"></script>
     <script src="../../assets/js/misc.js"></script>
     <!-- endinject -->
   </body>
