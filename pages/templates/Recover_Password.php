@@ -32,18 +32,18 @@
                 </div>
                 <h4>¡Sigue estos pasos!</h4>
                 <div class="buscarCorreo" id="buscarCorreo">
-                  <form class="pt-3" method="POST" action="operaciones.RP.php"  autocomplete="off" >
+                  <form class="pt-3" method="POST" action="operaciones.RP.php" >
                     <div class="<?php echo $alert ?>" role="alert">
                        <p><?php echo $msj ?></p> 
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       </button>
                     </div>
                     <div class="form-group">
-                      <input type="email" id="TxtCorreo" name="TxtCorreo" value="" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="<?php echo  $placeHolderTxt; ?>">
+                      <input type="text" id="TxtCorreo" name="TxtCorreo" value="" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="<?php echo  $placeHolderTxt; ?>">
                     </div>
   
                     <div class="mt-3">
-                      <button type=submit value="validar" name="btnOperacion" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Buscar"> <?php echo $buttonValue; ?>  </button>
+                      <button type=submit  name="btnOperacion" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="<?php echo $buttonValue; ?>"> <?php echo $buttonValue; ?>  </button>
                     </div>
                     <div class="text-center mt-4 font-weight-light"> ¿Recordaste Tu Cuenta? <a href="../../login.php" class="text-primary">IniciarSesión</a>
                     </div>

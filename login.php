@@ -10,7 +10,7 @@
 
     // echo sha1('jean123');
 
-    $sqlQuery = "SELECT l.PKid id,p.Nombre name FROM tbllogin l INNER JOIN tblpersonas p ON l.FKId_TblPersona = p.PKId WHERE l.usuario = '".$usuario."' and l.Password = '".$password ."' and l.FKId_TblEstado = 1";
+    $sqlQuery = "SELECT l.PKid id,p.Nombre name,p.Foto  FROM tbllogin l INNER JOIN tblpersonas p ON l.FKId_TblPersona = p.PKId WHERE l.usuario = '".$usuario."' and l.Password = '".$password ."' and l.FKId_TblEstado = 1";
     
     // echo $sqlQuery;
     try {
@@ -23,6 +23,7 @@
         session_start();
         $_SESSION['login_id'] = $arraShift['id'];
         $_SESSION['usuario_name'] = $arraShift['name'];
+        // $_SESSION['usuario_photo'] = $arraShift['Foto'];
         
         //Insertamos en el Historial
         $sql = "INSERT INTO tblhistorial( FKId_TblLogin, Fecha, Hora, FKId_TblTipoHistorial) VALUES (?,CURRENT_DATE,CURRENT_TIME,2)";
@@ -60,7 +61,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="stylesheet" href="assets/css/estilosLogin.css">
+    <link rel="stylesheet" href="assets/css/estilosRecover.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
   </head>

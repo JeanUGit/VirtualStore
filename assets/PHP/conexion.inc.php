@@ -34,8 +34,9 @@ function Get_Datos(){
 
         $alertColor = "";
         $msj= "";
-        $codeEncrypt = 0;
+        $codeEncrypt = "";
         $error = false;
+        $loginId = -1;
         if($_POST['TxtCorreo']=="")
         {
             $alertColor = "alert alert-warning alert-dismissible fade show"; 
@@ -45,15 +46,17 @@ function Get_Datos(){
         else{
             $correo = $_POST['TxtCorreo'];
             $bds = ConnectDB();
-            $strSQL = "SELECT Correo,Nombre FROM TblPersonas WHERE Correo ='$correo' ;";
+            $strSQL = "SELECT people.Correo, people.Nombre, login.PKid  FROM TblPersonas people inner join tbllogin login on people.PKId = login.FKId_TblPersona WHERE Correo ='$correo';";
+            
             $persona = $bds->query($strSQL)->fetchAll(PDO::FETCH_NUM);
             if($persona)
             {
                 $person = array_shift($persona);
                 $alertColor = "alert alert-success alert-dismissible fade show";
                 $codeEncrypt = uniqid("vrtualStore");
+                $loginId = $person[2];
+                $error = false;
                 $msj = Send_Email($person[0],$person[1],$codeEncrypt); 
-                $error = false;  
             }
             else{
                 $alertColor = "alert alert-danger alert-dismissible fade show";
@@ -62,7 +65,7 @@ function Get_Datos(){
             }
                 
         }
-        return array($msj,$alertColor,$codeEncrypt,$error);
+        return array($msj,$alertColor,$codeEncrypt,$error,$loginId);
     }
     
 }
@@ -102,6 +105,29 @@ function Send_Email($correo,$name,$codeEncrypt){
     }     
 }
 
+function Recover_Password($newPassword, $usuarioId){
+    try {
+        //code...
+        $sql1 = "UPDATE tbllogin SET Password = '".$newPassword."' WHERE tbllogin.PKid = ?";
+        $sql2 = "INSERT INTO tblhistorial( FKId_TblLogin, Fecha, Hora, FKId_TblTipoHistorial) VALUES (?,CURRENT_DATE,CURRENT_TIME,1)";
+        $bds = ConnectDB();
+        $resquestUpdate = $bds->prepare($sql1);
+        $executing = $resquestUpdate->execute([$usuarioId]);
+
+        $resquestUpdate = $bds->prepare($sql2);
+        $executing = $resquestUpdate->execute([$usuarioId]);
+        
+        return $executing;
+
+    } catch (\Throwable $th) {
+        //throw $th;
+        return 'Conflicto en la base de datos'.$th->getMessage();
+    }
+}
+
+function GuardarConfiguracion(){
+    
+}
 
 
 

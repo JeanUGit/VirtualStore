@@ -1,0 +1,14 @@
+.image-preview{
+    width: 200px;
+    min-height: 200px;
+    border: 2px solid grey;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image--preview__image{
+    display: none;
+    width: 100%;
+}
