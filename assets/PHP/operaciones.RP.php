@@ -1,13 +1,22 @@
 <?php
 include 'conexion.inc.php';
-
-    list($msj,$alert,$codeEncrypt,$error) = Get_Datos();
     $buttonValue = 'Buscar Cuenta';
     $placeHolderTxt = 'Correo de Usuario';
 
-    if($error){
-        echo 'men hubo un error';
+    
+
+    if(isset($_POST['btnOperacion'])){
+
+        $btnOperacion = $_POST['btnOperacion'];
+
+        switch
+
+        list($msj,$alert,$codeEncrypt,$error) = Get_Datos();
+        if(!$error){
+            echo 'men 0 error';
+        }
     }
+   
     include '../../pages/templates/Recover_Password.php';
 
 ?>
