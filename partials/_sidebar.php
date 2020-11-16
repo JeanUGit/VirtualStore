@@ -3,7 +3,7 @@
     <li class="nav-item nav-profile">
       <a href="#ConfiguracionUser.php" class="nav-link">
         <div class="nav-profile-image">
-          <img src="../../assets/images/faces/face1.jpg" alt="profile">
+          <img src="images/<?php echo $foto ?>" alt="profile">
           <span class="login-status online"></span>
           <!--change to offline or busy as needed-->
         </div>

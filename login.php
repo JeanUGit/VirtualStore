@@ -10,7 +10,7 @@
 
     // echo sha1('jean123');
 
-    $sqlQuery = "SELECT l.PKid id,p.Nombre name,p.Foto  FROM tbllogin l INNER JOIN tblpersonas p ON l.FKId_TblPersona = p.PKId WHERE l.usuario = '".$usuario."' and l.Password = '".$password ."' and l.FKId_TblEstado = 1";
+    $sqlQuery = "SELECT l.PKid id,p.Nombre name,p.Foto foto  FROM tbllogin l INNER JOIN tblpersonas p ON l.FKId_TblPersona = p.PKId WHERE l.usuario = '".$usuario."' and l.Password = '".$password ."' and l.FKId_TblEstado = 1";
     
     // echo $sqlQuery;
     try {
@@ -23,7 +23,7 @@
         session_start();
         $_SESSION['login_id'] = $arraShift['id'];
         $_SESSION['usuario_name'] = $arraShift['name'];
-        // $_SESSION['usuario_photo'] = $arraShift['Foto'];
+        $_SESSION['usuario_photo'] = $arraShift['foto'];
         
         //Insertamos en el Historial
         $sql = "INSERT INTO tblhistorial( FKId_TblLogin, Fecha, Hora, FKId_TblTipoHistorial) VALUES (?,CURRENT_DATE,CURRENT_TIME,2)";

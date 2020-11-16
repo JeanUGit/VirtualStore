@@ -1,5 +1,6 @@
-<?php
+ <?php
   session_start();
+  include '../../assets/PHP/conexion.inc.php';
   $name = '';
   if( $_SESSION['login_id'] == null || $_SESSION['login_id'] == ""){
     echo '¡Sin Autorización!';
@@ -11,7 +12,12 @@
       header('location:../../login.php');
     }else{
       $name =  $_SESSION['usuario_name'];
-      // $foto =  $_SESSION['usuario_photo'];
+      echo $_SESSION['usuario_photo'];
+      $foto =  $_SESSION['usuario_photo'] == "" ? 'avatar.png' : $_SESSION['usuario_photo'];
+    //   echo $foto;
+      $bds = ConnectDB();
+      $sql = "SELECT prod.Nombre nombre, prod.Cantidad cantidad, prod.Precio precio, prod.Foto foto, prod.Fecha fecha, cat.Descripcion descripcion, per.Nombre propietario, per.Contacto celular FROM tblproductos prod inner join tblcategoria cat on cat.PKid = prod.FKId_TblCategoria inner join tblpersonas per on per.PKId = prod.FKId_TblPersona_Owner where prod.Cantidad >= 1";  
+      $request = $bds->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
   }
 
@@ -40,7 +46,7 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/estilosRecover.css">
+    <link rel="stylesheet" href="../../assets/css/estilosRecover.css" >
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
 </head>
@@ -58,142 +64,31 @@
             <div class="main-panel">
                 <div class="content-wrapper">
 
-                    <div id="MainContainer">
-                        <div class="col-lg-12 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Smart Watch Iphone 12 </h4>
-                                    <p class="card-description"> 11-09-2020
-                                    </p>
-                                    <img src="./Store Virtual/assets/images/faces/face1.jpg" alt="">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th> User </th>
-                                                <th> First name </th>
-                                                <th> Progress </th>
-                                                <th> Amount </th>
-                                                <th> Deadline </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="py-1">
-                                                    <img src="../../assets/images/faces-clipart/pic-1.png"
-                                                        alt="image" />
-                                                </td>
-                                                <td> Herman Beck </td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td> $ 77.99 </td>
-                                                <td> May 15, 2015 </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-1">
-                                                    <img src="../../assets/images/faces-clipart/pic-2.png"
-                                                        alt="image" />
-                                                </td>
-                                                <td> Messsy Adam </td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-danger" role="progressbar"
-                                                            style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td> $245.30 </td>
-                                                <td> July 1, 2015 </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-1">
-                                                    <img src="../../assets/images/faces-clipart/pic-3.png"
-                                                        alt="image" />
-                                                </td>
-                                                <td> John Richards </td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-warning" role="progressbar"
-                                                            style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td> $138.00 </td>
-                                                <td> Apr 12, 2015 </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-1">
-                                                    <img src="../../assets/images/faces-clipart/pic-4.png"
-                                                        alt="image" />
-                                                </td>
-                                                <td> Peter Meggik </td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-primary" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td> $ 77.99 </td>
-                                                <td> May 15, 2015 </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-1">
-                                                    <img src="../../assets/images/faces-clipart/pic-1.png"
-                                                        alt="image" />
-                                                </td>
-                                                <td> Edward </td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-danger" role="progressbar"
-                                                            style="width: 35%" aria-valuenow="35" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td> $ 160.25 </td>
-                                                <td> May 03, 2015 </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-1">
-                                                    <img src="../../assets/images/faces-clipart/pic-2.png"
-                                                        alt="image" />
-                                                </td>
-                                                <td> John Doe </td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 65%" aria-valuenow="65" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td> $ 123.21 </td>
-                                                <td> April 05, 2015 </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="py-1">
-                                                    <img src="../../assets/images/faces-clipart/pic-3.png"
-                                                        alt="image" />
-                                                </td>
-                                                <td> Henry Tom </td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-warning" role="progressbar"
-                                                            style="width: 20%" aria-valuenow="20" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td> $ 150.00 </td>
-                                                <td> June 16, 2015 </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                    <div id="MainContainer" class="col-12" >
+                        <?php foreach ($request as $datos ): ?>
+                            <div class="card mb-3" style="max-width: 700px;">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <?php $productImage  = $datos['foto'] == "" || $datos['foto'] == null  ? 'defaultProduct.png': $datos['foto'] ; ?>
+                                        <img src="images/<?php echo $productImage ?> " class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?php  echo $datos['nombre']  ?></h5>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Precio: <?php echo $datos['precio'] ?> </li>
+                                                <li class="list-group-item">Categoria: <?php echo $datos['descripcion'] ?> </li>
+                                                <li class="list-group-item">Cantidad: <?php echo $datos['cantidad'] ?> </li>
+                                                <li class="list-group-item">Propietario:  <?php echo $datos['propietario'] ?> </li>
+                                                <li class="list-group-item">Celular: <?php echo $datos['celular'] ?> </li>
+                                            </ul>
+                                            <p class="card-text"><small class="text-muted"> <?php echo $datos['fecha'] ?> </small></p>
+                                            <a href="#" class="btn btn-primary">Comprar</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
 
                 </div>

@@ -299,3 +299,10 @@ input[type="text"]{
   color:white;
   font-size:12px;
 }
+
+#MainContainer{
+  padding-right: 100px;
+  padding-left: 200px;
+
+  
+}
