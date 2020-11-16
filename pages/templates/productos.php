@@ -1,10 +1,33 @@
+<?php
+// include '../../PHP/conexion.inc.php';
+include '../../assets/PHP/conexion.inc.php';
+$bds_connection = ConnectDB();
+
+function fetchCategoryData($bds){
+  $sql = "SELECT * FROM tblcategoria";
+  try {
+    //code...
+    $categorias = $bds->query($sql)->fetchAll(PDO::FETCH_NUM);
+    return $categorias;
+  } catch (\Throwable $th) {
+    //throw $th;
+    return $th;
+  }
+  
+}
+
+$requestData = fetchCategoryData($bds_connection);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Crear Cuenta</title>
+    <title>Agregar Productos</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -16,7 +39,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/estilosRecover.css">
-    <!-- <link rel="stylesheet" href="../../assets/css/estilosRegistro.css"> -->
+    <link rel="stylesheet" href="../../assets/css/estilosRegistro.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
@@ -31,11 +54,16 @@
                 <div class="BRAND-LOGO">
                   <h1>¡Productos!</h1>
                 </div>
-                <h4>¿Primera Vez?</h4>
-                <h6 class="font-weight-light">Sólo sigue los siguientes pasos.</h6>
                 <form class="pt-3">
-                  <div class="form-group">
-                    <input type="file" class="form-control form-control-lg" id="foto" aria-valuemax="100"/>
+                <div class="form-group">
+                    <label id="lblFoto" for="foto">    
+                      <i for="foto" class="material-icons">
+                        add_photo_alternate
+                      </i>
+                      Foto De Producto
+                    </label>
+                    <input type="file" class="form-control form-control-lg" id="foto" change="filePreview(this);" />
+          
                   </div>
 
                   <div class="form-group">
@@ -49,7 +77,9 @@
                   </div>
                   <div class="form-group">
                    <select name="Categoria" id="Categoria" class="form-control form-control-lg">
-                       <option value="">Categoria uno</option>
+                       <?php foreach ($requestData  as $data):?>
+                        <option value="echo <?php echo  $data[0] ?>"> <?php echo  $data[1] ?> </option>
+                       <?php endforeach;?>
                    </select>
                   </div>
                   <div class="form-group">

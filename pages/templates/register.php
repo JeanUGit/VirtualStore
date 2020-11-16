@@ -33,7 +33,7 @@
                 </div>
                 <h4>¿Primera Vez?</h4>
                 <h6 class="font-weight-light">Sólo sigue los siguientes pasos.</h6>
-                <form class="pt-3">
+                <form class="pt-3" method="POST" action="register.php">
                   <div class="form-group">
                     <label id="lblFoto" for="foto">    
                       <i for="foto" class="material-icons">
@@ -49,22 +49,22 @@
                   </div>
 
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control form-control-lg" name="nombre" placeholder="Nombre">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="apellido" placeholder="Apellido">
+                    <input type="text" class="form-control form-control-lg" name="apellido" placeholder="Apellido">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="correo" placeholder="Correo">
+                    <input type="text" class="form-control form-control-lg" name="correo" placeholder="Correo">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="direccion" placeholder="Dirección" >
+                    <input type="text" class="form-control form-control-lg" name="direccion" placeholder="Dirección" >
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="usuario" placeholder="Usuario">
+                    <input type="text" class="form-control form-control-lg" name="usuario" placeholder="Usuario">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="contraseña" placeholder="Contraseña">
+                    <input type="password" class="form-control form-control-lg" name="contraseña" placeholder="Contraseña">
                   </div>
                   <div class="mb-4">
                     <div class="form-check">
@@ -73,7 +73,7 @@
                     </div>
                   </div>
                   <div class="mt-3">
-                    <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="btnGuardar" name ="btnGuardar" href="login.php">Guardar</a>
+                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="btnGuardar" name ="btnGuardar" >Guardar</button>
                   </div>
                   <div class="text-center mt-4 font-weight-light"> ¿Ya tienes Una Cuenta? <a href="../../login.php" class="text-primary">IniciarSesión</a>
                   </div>

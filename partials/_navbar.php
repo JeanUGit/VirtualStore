@@ -29,6 +29,11 @@
           </div>
         </a>
       </li>
+      <li class="nav-item nav-profile dropdown">
+        <a class="nav-link" id="profileDropdown" href="productos.php"  aria-expanded="false">
+          Agregar Foto
+        </a>
+      </li>
       <form method="POST" action="index.php">
         <li class="nav-item nav-logout d-none d-lg-block">
         <!-- <i class="mdi mdi-power"></i> -->

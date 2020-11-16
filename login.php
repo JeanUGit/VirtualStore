@@ -96,7 +96,7 @@
                     </div>
                   </div>
                  
-                  <div class="text-center mt-4 font-weight-light"> ¿No tienes Una Cuenta? <a href="./pages/templates/register.html" class="text-primary">Registrarse</a>
+                  <div class="text-center mt-4 font-weight-light"> ¿No tienes Una Cuenta? <a href="./pages/templates/register.php" class="text-primary">Registrarse</a>
                   </div>
                 </form>
               </div>
