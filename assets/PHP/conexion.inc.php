@@ -1,6 +1,4 @@
 <?php
-
- 
 // require_once "../../vendor/autoload.php";
 require 'dependencias/Exception.php';
 require 'dependencias/PHPMailer.php';
@@ -128,7 +126,6 @@ function Recover_Password($newPassword, $usuarioId){
 function GuardarConfiguracion(){
     
 }
-
 
 
 ?>
