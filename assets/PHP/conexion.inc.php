@@ -1,6 +1,4 @@
 <?php
-
- 
 // require_once "../../vendor/autoload.php";
 require 'dependencias/Exception.php';
 require 'dependencias/PHPMailer.php';
@@ -101,8 +99,28 @@ function Send_Email($correo,$name,$codeEncrypt){
         return $e;
     }     
 }
+// INSERT INTO tblPersonas Procedimiento de almacenado
+// $id,$nombre,$apellido,$correo,$direccion,$contacto,$foto,$usuario,$contraseña,$estado
+function RegistrarPersona(){
+    $bds = ConnectDB();
+    $nombre = $_GET['nombre'];
+    $apellido = $_GET['apellido'];
+    $correo = $_GET['correo'];
+    $direccion = $_GET['direccion'];
+    $contacto = $_GET['contacto'];
+    $foto = $_GET['foto'];
+    $usuario = $_GET['usuario'];
+    $contraseña = $_GET['contraseña'];
+    $estado = 1;
+    
 
-
+    if(isset($_POST['btnGuardar'])){
+        if($nombre!=null||$apellido!=null||$correo!=null|| $direccion!=null||$contacto!=null||$foto!=null||$usuario!=null||$contraseña!=null||$estado!=0)
+            $sql = "INSERT INTO tblpersonas (Nombre,Apellido,Correo,Direccion,Contacto,Foto),tblLogin(usuario,Contraseña,FKId_TblPersona,FKId_TblEstado)
+            values ('".$nombre."','".$apellido."','".$correo."','".$direccion."','".$contacto."','".$foto."','".$usuario."','".$contraseña."''".$estado."')";
+                
+    }
+}
 
 
 ?>

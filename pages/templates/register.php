@@ -15,7 +15,7 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/estilos.css">
+    <link rel="stylesheet" href="../../assets/css/estilosRecover.css">
     <link rel="stylesheet" href="../../assets/css/estilosRegistro.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- End layout styles -->
@@ -52,19 +52,19 @@
                     <input type="text" class="form-control form-control-lg" id="nombre" placeholder="Nombre">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Apellido">
+                    <input type="text" class="form-control form-control-lg" id="apellido" placeholder="Apellido">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Correo">
+                    <input type="text" class="form-control form-control-lg" id="correo" placeholder="Correo">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputDireccion" placeholder="Dirección" >
+                    <input type="text" class="form-control form-control-lg" id="direccion" placeholder="Dirección" >
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputUser" placeholder="Usuario">
+                    <input type="text" class="form-control form-control-lg" id="usuario" placeholder="Usuario">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Contraseña">
+                    <input type="password" class="form-control form-control-lg" id="contraseña" placeholder="Contraseña">
                   </div>
                   <div class="mb-4">
                     <div class="form-check">
@@ -73,7 +73,7 @@
                     </div>
                   </div>
                   <div class="mt-3">
-                    <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="index.php">Guardar</a>
+                    <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" id="btnGuardar" name ="btnGuardar" href="login.php">Guardar</a>
                   </div>
                   <div class="text-center mt-4 font-weight-light"> ¿Ya tienes Una Cuenta? <a href="../../login.php" class="text-primary">IniciarSesión</a>
                   </div>
