@@ -10,11 +10,7 @@ include 'conexion.inc.php';
     $logID = -1;
 
     if(isset($_POST['btnOperacion'])){
-        echo 'si se hizo post del boton';
         $btnOperacion = $_POST['btnOperacion'];
-
-        echo $_POST['btnOperacion'];
-
         switch ($btnOperacion) {
             case 'Buscar Cuenta':
                 echo 'entro a  buscar correo';
