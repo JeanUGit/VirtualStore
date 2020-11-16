@@ -17,14 +17,23 @@
 
     if(isset($_POST['btnGuardar'])){
       if($documento!="" && $nombre!="" && $apellido!="" && $correo!="" && $direccion!="" && $contacto!="" && $usuario!="" && $contraseña!=""){
-
-        
+          // Get image name
+          $image = $_FILES['image']['name'];
+          
+          // image file directory
+          $target = "./images/".basename($image);
+                
           try {
             //code...
-            $sql = "INSERT INTO tblpersonas (PKId,Nombre,Apellido,Correo,Direccion,Contacto,Foto) values ('".$documento."','".$nombre."','".$apellido."','".$correo."','".$direccion."','".$contacto."','".$foto."')";
+            $sql = "INSERT INTO tblpersonas (PKId,Nombre,Apellido,Correo,Direccion,Contacto,Foto) values ('".$documento."','".$nombre."','".$apellido."','".$correo."','".$direccion."','".$contacto."','".$image."')";
             $sql2 = "INSERT INTO tblLogin(usuario,Contraseña,FKId_TblPersona,FKId_TblEstado) values ('".$usuario."','".$contraseña."','".$documento."','".$estado."')";
             $dato1 = $bds-> query($sql);
             $dato2 = $bds-> query($sql2);
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+              $msj = 0 ;
+            }else{
+              $msj = 1;
+            }
           } catch (\Throwable $th) {
           die( $th);
           //throw $th;
@@ -35,6 +44,7 @@
       }
   }
 
+  
 ?>
 
 <!DOCTYPE html>
