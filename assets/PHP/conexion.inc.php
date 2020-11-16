@@ -11,10 +11,10 @@ use PHPMailer\PHPMailer\Exception;
 
 function ConnectDB(){
     $bd_dns = 'mysql:host=localhost; dbname=database_storevirtual; charset=utf8';
-    // $bd_user = 'storevirtual';
-    // $bd_password = '3203825242vale';
-    $bd_user = 'root';
-    $bd_password = '';
+    $bd_user = 'storevirtual';
+    $bd_password = '3203825242vale';
+    // $bd_user = 'root';
+    // $bd_password = '';
     $bd_options = array(PDO::ATTR_PERSISTENT => true);
     try{
         $bds = new PDO($bd_dns, $bd_user, $bd_password, $bd_options);
