@@ -16,7 +16,7 @@
       $foto =  $_SESSION['usuario_photo'] == "" ? 'avatar.png' : $_SESSION['usuario_photo'];
     //   echo $foto;
       $bds = ConnectDB();
-      $sql = "SELECT prod.Nombre nombre, prod.Cantidad cantidad, prod.Precio precio, prod.Foto foto, prod.Fecha fecha, cat.Descripcion descripcion, per.Nombre propietario, per.Contacto celular FROM tblproductos prod inner join tblcategoria cat on cat.PKid = prod.FKId_TblCategoria inner join tblpersonas per on per.PKId = prod.FKId_TblPersona_Owner where prod.Cantidad >= 1";  
+      $sql = "SELECT prod.Nombre nombre, prod.Cantidad cantidad, prod.Precio precio, prod.Foto foto, prod.Fecha fecha, cat.Descripcion descripcion, per.Nombre propietario, per.Contacto celular FROM tblproductos prod inner join tblcategoria cat on cat.PKid = prod.FKId_TblCategoria inner join tblpersonas per on per.PKId = prod.FKId_TblPersona_Owner where prod.Cantidad >= 1 ORDER BY prod.Fecha DESC ";  
       $request = $bds->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
   }
@@ -83,7 +83,7 @@
                                                 <li class="list-group-item">Celular: <?php echo $datos['celular'] ?> </li>
                                             </ul>
                                             <p class="card-text"><small class="text-muted"> <?php echo $datos['fecha'] ?> </small></p>
-                                            <a href="#" class="btn btn-primary">Comprar</a>
+                                            <a  class="btn btn-primary">Comprar</a>
                                         </div>
                                     </div>
                                 </div>

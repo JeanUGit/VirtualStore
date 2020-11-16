@@ -110,12 +110,13 @@ function Recover_Password($newPassword, $usuarioId){
         $sql2 = "INSERT INTO tblhistorial( FKId_TblLogin, Fecha, Hora, FKId_TblTipoHistorial) VALUES (?,CURRENT_DATE,CURRENT_TIME,1)";
         $bds = ConnectDB();
         $resquestUpdate = $bds->prepare($sql1);
-        $executing = $resquestUpdate->execute([$usuarioId]);
+        $executing1 = $resquestUpdate->execute([$usuarioId]);
 
-        $resquestUpdate = $bds->prepare($sql2);
-        $executing = $resquestUpdate->execute([$usuarioId]);
+        $bds_c = ConnectDB();
+        $resquestUpdate_c =  $bds_c->prepare($sql2);
+        $executing2 = $resquestUpdate_c->execute([$usuarioId]);
         
-        return $executing;
+        return $executing2;
 
     } catch (\Throwable $th) {
         //throw $th;

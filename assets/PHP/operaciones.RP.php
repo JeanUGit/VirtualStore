@@ -13,14 +13,12 @@ include 'conexion.inc.php';
         $btnOperacion = $_POST['btnOperacion'];
         switch ($btnOperacion) {
             case 'Buscar Cuenta':
-                echo 'entro a  buscar correo';
                 $datos = Get_Datos();
                 $msj = $datos[0];
                 $alert = $datos[1];
                 $_SESSION['codigo'] =  $datos[2];
                 $error = $datos[3];
                 $_SESSION['logId'] = $datos[4];
-                echo $alert.'-'.$codeEncrypt.'-'.$error.'-'.$logID;
 
                 if(!$error){
                     $buttonValue = 'Validar Código';
